@@ -70,18 +70,6 @@ namespace Task_Monopoly
 
 
 
-
-
-
-            // Другое
-            Box1 box1 = new Box1()
-            {
-                Width = 13,
-                Height = 4,
-                Length = 8
-            };
-           
-            int V = box1.Volume;
         }
     }
 }

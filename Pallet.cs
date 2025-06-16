@@ -8,14 +8,10 @@ namespace Task_Monopoly
 {
     internal class Pallet : Cargo
     {
-        public override double Weight { get; set; } // Переопределение свойства Weight для Pallet
-        public override double Volume 
-        { 
-            get 
-            {
-                return Volume;
-            } 
-        }
+        public override double Weight => _Boxes.Sum(box => box.Weight) + 30; // Вес паллеты включает в себя вес всех коробок на паллете плюс вес самой паллеты (30 кг).
+        public override double Volume => (Weight * Length * Height) + _Boxes.Sum(box => box.Volume); // Объём паллеты включает в себя вес паллеты, длину и высоту, а также объём всех коробок на паллете.
+
+        public DateTime? Date_Expiration => (!_Boxes.Any()) ? null : _Boxes.Min(dr => dr.Date_Expiration)?.Date; // Возвращает минимальную дату истечения срока годности среди всех коробок на паллете, или null, если коробок нет.
 
         private readonly List<Box> _Boxes;
 
@@ -36,6 +32,7 @@ namespace Task_Monopoly
             }
             _Boxes.Add(box);
         }
+
 
     }
 }
