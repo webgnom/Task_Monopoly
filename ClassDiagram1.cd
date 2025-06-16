@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Task_Monopoly.Cargo">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEABAAAgAAAAAAAAEBAACAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Cargo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task_Monopoly.ReadExcel">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAABAAAAIAAABAAAABAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>ReadExcel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task_Monopoly.Pallet">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Pallet.cs</FileName>
+      <NewMemberFileName>Program.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task_Monopoly.Box1">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEABAAAgAAAAAAAAERAACAAAAAAAAIAAAAEAAA=</HashCode>
+      <FileName>Box1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task_Monopoly.Box">
+    <Position X="9.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAEAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Box.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
