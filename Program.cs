@@ -35,7 +35,7 @@ namespace Task_Monopoly
 
             foreach (DataRow dr in dt.Rows)
             {
-                var val = dr["Date_Production_Box"];
+                var val = dr["Length_Box"];
                 Console.WriteLine($"{val} - {val?.GetType()?.Name ?? "null"}");
             }
 
@@ -45,24 +45,22 @@ namespace Task_Monopoly
             {
                 Box current_Box = new Box
                 (
-                    //Width: dr.Field<int>("Width_Box"),
-                    //Length: dr.Field<int>("Length_Box"),
-                    //Height: dr.Field<int>("Height_Box"),
-                    //Weight: dr.Field<int>("Weight_Box"),
-                    //Date_Production: dr["Date_Production_Box"] as DateTime?,
-                    //Date_Expiration: dr["Date_Expiration_Box"] as DateTime?,
-                    //Date_Production: dr.Field<DateTime?>("Date_Production_Box"),
-                    //Date_Expiration: dr.Field<DateTime?>("Date_Expiration_Box"),
-                    //Pallet: dr.Field<int>( "Pallet_Box")
-                    Width: 1,
-                    Length: 1,
-                    Height: 1,
-                    Weight: 1,
-                    //Date_Production: dr["Date_Production_Box"] as DateTime?,
-                    //Date_Expiration: dr["Date_Expiration_Box"] as DateTime?,
+                    Width: dr.Field<double>("Width_Box"),
+                    Length: dr.Field<double>("Length_Box"),
+                    Height: dr.Field<double>("Height_Box"),
+                    Weight: dr.Field<double>("Weight_Box"),
                     Date_Production: dr.Field<DateTime?>("Date_Production_Box"),
                     Date_Expiration: dr.Field<DateTime?>("Date_Expiration_Box"),
-                    Pallet: 1
+                    Pallet: dr.Field<double>("Pallet_Box")
+                    //Width: 1,
+                    //Length: dr.Field<int>("Length_Box"),
+                    //Height: 1,
+                    //Weight: 1,
+                    //Date_Production: dr.Field<DateTime?>("Date_Production_Box"),
+                    //Date_Expiration: dr.Field<DateTime?>("Date_Expiration_Box"),
+                    ////Date_Production: DateTime.Parse("17.05.2025"),
+                    ////Date_Expiration: null,
+                    //Pallet: 1
                 );
                 List_test.Add(current_Box);
 
@@ -73,15 +71,13 @@ namespace Task_Monopoly
                 .AsEnumerable()
                 .Select(dr =>
                     new Box(
-                        Width: dr.Field<int>("Width_Box"),
-                        Length: dr.Field<int>("Length_Box"),
-                        Height: dr.Field<int>("Height_Box"),
-                        Weight: dr.Field<int>("Weight_Box"),
-                        //Date_Production: dr["Date_Production_Box"] as DateTime?,
-                        Date_Production: dr.Field<DateTime?>("Date_Production_Box") as DateTime?,
-                        //Date_Expiration: dr["Date_Expiration_Box"] as DateTime?,
-                        Date_Expiration: dr.Field<DateTime?>("Date_Expiration_Box") as DateTime?,
-                        Pallet: dr.Field<int>("Pallet_Box")
+                        Width: dr.Field<double>("Width_Box"),
+                        Length: dr.Field<double>("Length_Box"),
+                        Height: dr.Field<double>("Height_Box"),
+                        Weight: dr.Field<double>("Weight_Box"),
+                        Date_Production: dr.Field<DateTime?>("Date_Production_Box"),
+                        Date_Expiration: dr.Field<DateTime?>("Date_Expiration_Box"),
+                        Pallet: dr.Field<double>("Pallet_Box")
                     )
                     //{
                     //    //Width = Convert.ToInt32(dr["Width_Box"]),

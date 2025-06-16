@@ -71,8 +71,15 @@ namespace Task_Monopoly
                 if (string.IsNullOrWhiteSpace(colName))
                     colName = $"column{column}";
 
-
                 dt.Columns.Add(colName, typeof(object));
+
+                //Попытка присвоить тип данных 
+                //object cellValue = (usedRange.Cells[2, column])?.Value;
+                //Type cellType = cellValue.GetType();
+                //Type cellType = cellValue != null ? cellValue.GetType() : typeof(string); // или typeof(object)
+
+                //DataColumn dataColumn = dt.Columns.Add(colName);
+                //dataColumn.DataType = cellType;
             }
 
             // Читаем данные начиная со второй строки

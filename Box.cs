@@ -32,18 +32,18 @@ namespace Task_Monopoly
             get { return _Date_Production.Value.Date; }
             set { _Date_Production = value; }
         }
-        public int Pallet { get; set; }
+        public double Pallet { get; set; }
 
         //public Box() { }
 
-        public Box(int Width, int Length, int Height, int Weight, DateTime? Date_Expiration, DateTime? Date_Production, int Pallet) : base(Width, Length, Height)
+        public Box(double Width, double Length, double Height, double Weight, DateTime? Date_Expiration, DateTime? Date_Production, double Pallet) : base(Width, Length, Height)
         {
             if (!Date_Expiration.HasValue && !Date_Production.HasValue)
             {
                 throw new ArgumentException("Необходимо указать либо срок годности, либо дату производства.");
             }
-            this.Date_Expiration = Date_Expiration?.Date;
             this.Date_Production = Date_Production?.Date;
+            this.Date_Expiration = Date_Expiration?.Date;
             this.Weight = Weight;
             this.Pallet = Pallet;
 

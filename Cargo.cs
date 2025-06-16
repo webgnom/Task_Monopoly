@@ -10,14 +10,14 @@ namespace Task_Monopoly
     {
         
         public Guid ID { get; }
-        public int Width { get; set; } // Ширина
-        public int Length { get; set; } // Длина (Глубина)
-        public int Height { get; set; } // Высота
-        public virtual int Volume => Width * Length * Height; // Объём
-        public virtual int Weight { get; set; } // Вес
+        public double Width { get; set; } // Ширина
+        public double Length { get; set; } // Длина (Глубина)
+        public double Height { get; set; } // Высота
+        public virtual double Volume => Width * Length * Height; // Объём
+        public virtual double Weight { get; set; } // Вес
         public virtual DateTime? Date_Expiration { get; set; } // Дата окончания срока годности
 
-        protected Cargo(int Width, int Length, int Height)
+        protected Cargo(double Width, double Length, double Height)
         {
             ID = Guid.NewGuid();
             this.Width = Width;

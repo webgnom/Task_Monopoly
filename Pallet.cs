@@ -8,8 +8,8 @@ namespace Task_Monopoly
 {
     internal class Pallet : Cargo
     {
-        public override int Weight { get; set; } // Переопределение свойства Weight для Pallet
-        public override int Volume 
+        public override double Weight { get; set; } // Переопределение свойства Weight для Pallet
+        public override double Volume 
         { 
             get 
             {
