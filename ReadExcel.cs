@@ -71,7 +71,8 @@ namespace Task_Monopoly
                 if (string.IsNullOrWhiteSpace(colName))
                     colName = $"column{column}";
 
-                dt.Columns.Add(colName);
+
+                dt.Columns.Add(colName, typeof(object));
             }
 
             // Читаем данные начиная со второй строки
@@ -80,7 +81,11 @@ namespace Task_Monopoly
                 DataRow dataRow = dt.NewRow();
                 for (int column = 1; column <= countColumn; column++)
                 {
-                    dataRow[column - 1] = (usedRange.Cells[row, column]).Value ?? DBNull.Value;
+                    object cellValue = (usedRange.Cells[row, column])?.Value;
+                    if (cellValue is DateTime dateTime_Value)
+                        dataRow[column - 1] = dateTime_Value;
+                    else 
+                        dataRow[column - 1] = cellValue;
                 }
                 dt.Rows.Add(dataRow);
             }

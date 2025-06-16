@@ -17,12 +17,12 @@ namespace Task_Monopoly
         public virtual int Weight { get; set; } // Вес
         public virtual DateTime? Date_Expiration { get; set; } // Дата окончания срока годности
 
-        //protected Cargo(int Width, int Length, int Height) 
-        //{
-        //    ID = Guid.NewGuid();
-        //    this.Width = Width;
-        //    this.Length = Length;
-        //    this.Height = Height;
-        //}
+        protected Cargo(int Width, int Length, int Height)
+        {
+            ID = Guid.NewGuid();
+            this.Width = Width;
+            this.Length = Length;
+            this.Height = Height;
+        }
     }
 }

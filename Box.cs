@@ -34,19 +34,31 @@ namespace Task_Monopoly
         }
         public int Pallet { get; set; }
 
-        public Box() { }
+        //public Box() { }
 
-        //public Box(int Width, int Length, int Height, int Weight, DateTime? Date_Expiration, DateTime? Date_Production) : base(Width, Length, Height)
+        public Box(int Width, int Length, int Height, int Weight, DateTime? Date_Expiration, DateTime? Date_Production, int Pallet) : base(Width, Length, Height)
+        {
+            if (!Date_Expiration.HasValue && !Date_Production.HasValue)
+            {
+                throw new ArgumentException("Необходимо указать либо срок годности, либо дату производства.");
+            }
+            this.Date_Expiration = Date_Expiration?.Date;
+            this.Date_Production = Date_Production?.Date;
+            this.Weight = Weight;
+            this.Pallet = Pallet;
+
+
+        }
+
+        /// <summary> Положить в палету </summary>
+        //public void PutInPallet(Pallet pallet)
         //{
-        //    if (!Date_Expiration.HasValue && !Date_Production.HasValue)
+        //    if (this.Width < pallet.Width || this.Length < pallet.Length)
         //    {
-        //        throw new ArgumentException("Необходимо указать либо срок годности, либо дату производства.");
+        //        Console.WriteLine($"Коробка ID: {this.ID.ToString()} не может быть добавлена на паллету ID: {Id.ToString()}. Размеры коробки ({this.Width}x{this.Length}) превышают размеры паллеты ({pallet.Width}x{pallet.Length}).");
+        //        //throw new ArgumentException($"Коробка ID: {this.ID.ToString()} не может быть добавлена на паллету ID: {Id.ToString()}. Размеры коробки ({this.Width}x{this.Length}) превышают размеры паллеты ({pallet.Width}x{pallet.Length}).");
         //    }
-        //    Date_Expiration = Date_Expiration?.Date; // Обрезаем время
-        //    Date_Production = Date_Production?.Date; // Обрезаем время
-        //    this.Weight = Weight;
+        //    pallet._Boxes.Add(box);
         //}
-
-
     }
 }
