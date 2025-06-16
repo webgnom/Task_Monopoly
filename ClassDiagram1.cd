@@ -17,7 +17,7 @@
   <Class Name="Task_Monopoly.Pallet">
     <Position X="5.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAIQAAAAAAA=</HashCode>
       <FileName>Pallet.cs</FileName>
       <NewMemberFileName>Program.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -32,7 +32,7 @@
   <Class Name="Task_Monopoly.Box">
     <Position X="9.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAEAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>BAAAAAEABAAAAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Box.cs</FileName>
     </TypeIdentifier>
   </Class>

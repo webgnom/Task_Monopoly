@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Task_Monopoly
 {
+    /// <summary> класс для описания Коробок </summary>
     internal class Box : Cargo
     {
+        
         private DateTime? _Date_Expiration;
         public override DateTime? Date_Expiration // Дата окончания срока годности
         { 
@@ -34,7 +36,7 @@ namespace Task_Monopoly
         }
         public double Pallet { get; set; }
 
-        //public Box() { }
+        //public Box() { } - 
 
         public Box(double Width, double Length, double Height, double Weight, DateTime? Date_Expiration, DateTime? Date_Production, double Pallet) : base(Width, Length, Height)
         {
@@ -50,7 +52,8 @@ namespace Task_Monopoly
 
         }
 
-        /// <summary> Положить в палету </summary>
+        /// <summary> Прикрепить к палете </summary>
+        /// <remarks> Метод для прикрепления коробки к палету</remarks>
         //public void PutInPallet(Pallet pallet)
         //{
         //    if (this.Width < pallet.Width || this.Length < pallet.Length)

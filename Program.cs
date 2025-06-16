@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Data;
 using System.Net.Mail;
+using Microsoft.Vbe.Interop;
 
 namespace Task_Monopoly
 {
@@ -22,52 +23,7 @@ namespace Task_Monopoly
             ReadExcel ReadExcel = new ReadExcel(pathExcel, 0);
             Data.DataTable dt = ReadExcel.GetTable();
 
-            // пока не используется 
-            DataColumnCollection dataColumnCollection = dt.Columns;
-            DataColumn dataColumn_Name = dt.Columns["Name_Box"];
-            DataColumn dataColumn_Width = dt.Columns["Width_Box"];
-            DataColumn dataColumn_Length = dt.Columns["Length_Box"];
-            DataColumn dataColumn_Height = dt.Columns["Height_Box"];
-            DataColumn dataColumn_Date_Production = dt.Columns["Date_Production_Box"];
-            DataColumn dataColumn_Date_Expiration = dt.Columns["Date_Expiration_Box"];
-            DataColumn dataColumn_Weight = dt.Columns["Weight_Box"];
-            DataColumn dataColumn_Pallet = dt.Columns["Pallet_Box"];
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                var val = dr["Length_Box"];
-                Console.WriteLine($"{val} - {val?.GetType()?.Name ?? "null"}");
-            }
-
-            // тест 
-            List<Box> List_test = new List<Box>();
-            foreach (DataRow dr in dt.Rows) 
-            {
-                Box current_Box = new Box
-                (
-                    Width: dr.Field<double>("Width_Box"),
-                    Length: dr.Field<double>("Length_Box"),
-                    Height: dr.Field<double>("Height_Box"),
-                    Weight: dr.Field<double>("Weight_Box"),
-                    Date_Production: dr.Field<DateTime?>("Date_Production_Box"),
-                    Date_Expiration: dr.Field<DateTime?>("Date_Expiration_Box"),
-                    Pallet: dr.Field<double>("Pallet_Box")
-                    //Width: 1,
-                    //Length: dr.Field<int>("Length_Box"),
-                    //Height: 1,
-                    //Weight: 1,
-                    //Date_Production: dr.Field<DateTime?>("Date_Production_Box"),
-                    //Date_Expiration: dr.Field<DateTime?>("Date_Expiration_Box"),
-                    ////Date_Production: DateTime.Parse("17.05.2025"),
-                    ////Date_Expiration: null,
-                    //Pallet: 1
-                );
-                List_test.Add(current_Box);
-
-            }
-
-            //Тест
-            var query = dt
+            List<Box> list_Box = dt
                 .AsEnumerable()
                 .Select(dr =>
                     new Box(
@@ -79,36 +35,10 @@ namespace Task_Monopoly
                         Date_Expiration: dr.Field<DateTime?>("Date_Expiration_Box"),
                         Pallet: dr.Field<double>("Pallet_Box")
                     )
-                    //{
-                    //    //Width = Convert.ToInt32(dr["Width_Box"]),
-                    //    //Length = Convert.ToInt32(dr["Length_Box"]),
-                    //    //Height = Convert.ToInt32(dr["Height_Box"]),
-                        
-                    //    //Date_Production = Convert.ToDateTime(dr["Date_Production_Box"]),
-                    //    //Date_Production = !(dr["Date_Production_Box"] is DateTime) ? null : Convert.ToDateTime(dr["Date_Production_Box"]) ,
-                    //    //Date_Production = dr.Field<DateTime?>("Date_Production_Box"),
-
-                    //    ////Date_Expiration = Convert.ToDateTime(dr["Date_Expiration_Box"]),
-                    //    ////Date_Expiration = Convert.ToDateTime(dr["Date_Expiration_Box"]),
-                        
-                    //    //Weight = Convert.ToInt32(dr["Weight_Box"]),
-                    //    //Pallet = Convert.ToInt32(dr["Pallet_Box"]),
-
-                    //    Width = dr.Field<int>("Width_Box"),
-                    //    Length = dr.Field<int>("Length_Box"),
-                    //    Height = dr.Field<int>("Height_Box"),
-                    //    Weight = dr.Field<int>("Weight_Box"),
-                    //    Date_Production = dr["Date_Production_Box"] as DateTime?,
-                    //    Date_Expiration = dr["Date_Expiration_Box"] as DateTime?,
-                    //    //Date_Production = dr.Field<DateTime>("Date_Production_Box"),
-                    //    //Date_Expiration = dr.Field<DateTime>("Date_Expiration_Box"),
-                    //    Pallet = dr.Field<int>("Pallet_Box"),
-                    //}
                 )
+                .ToList()
             ;
-            List<Box> list_Box = query.ToList();
 
-            ////Console.WriteLine($"ID = {list_Box[0].ID,-4}, Width = {list_Box[0].Width,-4}, Length = {list_Box[0].Length,-4}, Height = {list_Box[0].Height,-4}, Date_Expiration = {list_Box[0]?.Date_Expiration,-12}, Date_Production = {list_Box[0]?.Date_Production,-12}, Weight = {list_Box[0].Weight,-4}, Pallet = {list_Box[0].Pallet,-4} ");
 
             //// Генерация прямо в приложении
 

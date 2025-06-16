@@ -24,6 +24,8 @@ namespace Task_Monopoly
             _Boxes = new List<Box>(); // Создаем лист для отдельного паллета
         }
 
+        /// <summary> Прикрепить к палете коробку с проверкой</summary>
+        /// <remarks> Пока не используется, сейчас в задумке хочу реализовать клон этого метода в Box'e</remarks>
         // Ручное добавление коробки
         public void AddBox(Box box)
         {
